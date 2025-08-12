@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Case Print Template</title>
+<style>
+    body {
+        font-family: "Times New Roman", serif;
+        margin: 0;
+        padding: 20px;
+    }
+    .court-title {
+        text-align: center;
+        font-size: 18pt;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .form-section {
+        max-width: 800px;
+        margin: auto;
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    input, select {
+        width: 100%;
+        padding: 5px;
+        margin-top: 3px;
+    }
+    button {
+        margin-top: 15px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    .print-section {
+        display: none;
+    }
+    @media print {
+        body {
+            margin: 1in;
+        }
+        .form-section {
+            display: none;
+        }
+        .print-section {
+            display: block;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="court-title">
+    Supreme Court of Bangladesh<br>
+    High Court Division, Dhaka<br>
+    (Original Section)
+</div>
+
+<div class="form-section">
+    <label>Case Type:</label>
+    <input type="text" id="caseType">
+
+    <label>Case Number:</label>
+    <input type="text" id="caseNumber">
+
+    <label>Year:</label>
+    <input type="text" id="caseYear">
+
+    <label>Sent Court & Date:</label>
+    <input type="text" id="sentCourt">
+
+    <label>Received Court & Date:</label>
+    <input type="text" id="receivedCourt">
+
+    <label>Typist Name & Date:</label>
+    <input type="text" id="typist">
+
+    <label>A.R Sign & Date:</label>
+    <input type="text" id="arSign">
+
+    <label>Dispatch & Date:</label>
+    <input type="text" id="dispatch">
+
+    <label>R.A & Date:</label>
+    <input type="text" id="raDate">
+
+    <button onclick="previewPrint()">Preview & Print</button>
+</div>
+
+<div class="print-section" id="printArea">
+    <div class="court-title">
+        Supreme Court of Bangladesh<br>
+        High Court Division, Dhaka<br>
+        (Original Section)
+    </div>
+    <p><b>Case Type:</b> <span id="p_caseType"></span></p>
+    <p><b>Case Number:</b> <span id="p_caseNumber"></span></p>
+    <p><b>Year:</b> <span id="p_caseYear"></span></p>
+    <p><b>Sent Court & Date:</b> <span id="p_sentCourt"></span></p>
+    <p><b>Received Court & Date:</b> <span id="p_receivedCourt"></span></p>
+    <p><b>Typist Name & Date:</b> <span id="p_typist"></span></p>
+    <p><b>A.R Sign & Date:</b> <span id="p_arSign"></span></p>
+    <p><b>Dispatch & Date:</b> <span id="p_dispatch"></span></p>
+    <p><b>R.A & Date:</b> <span id="p_raDate"></span></p>
+</div>
+
+<script>
+function previewPrint() {
+    document.getElementById("p_caseType").innerText = document.getElementById("caseType").value;
+    document.getElementById("p_caseNumber").innerText = document.getElementById("caseNumber").value;
+    document.getElementById("p_caseYear").innerText = document.getElementById("caseYear").value;
+    document.getElementById("p_sentCourt").innerText = document.getElementById("sentCourt").value;
+    document.getElementById("p_receivedCourt").innerText = document.getElementById("receivedCourt").value;
+    document.getElementById("p_typist").innerText = document.getElementById("typist").value;
+    document.getElementById("p_arSign").innerText = document.getElementById("arSign").value;
+    document.getElementById("p_dispatch").innerText = document.getElementById("dispatch").value;
+    document.getElementById("p_raDate").innerText = document.getElementById("raDate").value;
+
+    window.print();
+}
+</script>
+
+</body>
+</html>
